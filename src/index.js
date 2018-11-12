@@ -1,9 +1,20 @@
-function component() {
-  let element = document.createElement('h1');
+import Vue from 'vue';
+import App from './App.vue';
+import {
+  MdButton,
+  MdField,
+  MdSnackbar,
+  MdCard,
+  MdRipple,
+} from 'vue-material/dist/components';
 
-  element.innerHTML = 'Hello World!';
+Vue.use(MdButton);
+Vue.use(MdField);
+Vue.use(MdSnackbar);
+Vue.use(MdCard);
+Vue.use(MdRipple);
 
-  return element;
-}
-
-document.body.appendChild(component());
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
