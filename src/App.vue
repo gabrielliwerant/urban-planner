@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>{{ message }}</h1>
+    <h1 class="md-display-1 title">{{ title }}</h1>
 
     <form v-on:submit.prevent="onSubmit">
       <input v-model="dayNum" placeholder="Number of days to plan...">
@@ -18,11 +18,14 @@
 </template>
 
 <script>
+  import 'vue-material/dist/vue-material.min.css';
+  import './styles.scss';
+
   export default {
     name: 'app',
     data () {
       return {
-        message: 'Urban Planner',
+        title: 'Welcome to Urban Planner!',
         dayNum: '',
         formError: '',
         formSuccess: '',
