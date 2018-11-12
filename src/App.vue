@@ -46,11 +46,11 @@
       return {
         title: 'Welcome to Urban Planner!',
         helperText: 'Create a schedule of activities below to get started. You can change individual days by clicking them, or re-submit days at any time.',
+        formSuccessMsg: 'Form successfully submitted!',
         dayNum: '',
         maxDays: 31,
         hasError: false,
         hasSuccess: false,
-        formSuccessMsg: 'Form successfully submitted!',
         activities: []
       }
     },
@@ -96,6 +96,7 @@
           this.resetActivities;
 
           // Make all of our requests in a row
+          // TODO: Make sure all requests finish sucessfully before populating
           for (var i = 0; i < this.dayNum; i += 1) {
             this.get(i);
           }
