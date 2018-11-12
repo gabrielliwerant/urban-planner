@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1 class="md-display-1 text-center">{{ title }}</h1>
+    <h1 class="md-display-2 text-center">{{ title }}</h1>
     <h2 class="md-subheading text-center">{{ helperText }}</h2>
 
     <form v-on:submit.prevent="onSubmit">
