@@ -5,12 +5,12 @@
 
     <form v-on:submit.prevent="onSubmit">
       <div class="md-layout md-alignment-top-center">
-        <md-field class="md-layout-item md-size-25" :class="getFormMsgClass">
+        <md-field class="md-layout-item md-xlarge-size-20 md-large-size-20 md-medium-size-40 md-small-size-60" :class="getFormMsgClass">
           <label>Schedule Days</label>
           <md-input v-model="dayNum" placeholder="Enter number of days to plan"></md-input>
           <span class="md-error">{{ getFormErrorMsg }}</span>
         </md-field>
-        <md-button v-on:click="onSubmit" class="md-layout-item md-size-5 md-raised md-primary">Submit</md-button>
+        <md-button v-on:click="onSubmit" class="md-layout-item md-xlarge-size-5 md-large-size-5 md-medium-size-15 md-small-size-15 md-raised md-primary">Submit</md-button>
       </div>
       <md-snackbar md-position="center" :md-duration="2000" :md-active.sync="hasSuccess" md-persistent>
         <span class="success-msg">{{ formSuccessMsg }}</span>
@@ -18,7 +18,7 @@
     </form>
 
     <ol class="md-layout md-gutter activity-grid">
-      <li v-for="(activity, index) in activities" class="md-layout-item md-size-15 activity-grid-item">
+      <li v-for="(activity, index) in activities" class="md-layout-item md-xlarge-size-15 md-large-size-15 md-small-size-45 activity-grid-item">
         <div v-on:click="onClick(index)">
           <md-card md-with-hover v-if="activity.activity">
             <md-ripple class="activity-card">
