@@ -76,7 +76,6 @@
     methods: {
       onSubmit: function() {
         this.dayNum = parseInt(this.dayNum, 10);
-        this.resetActivities;
 
         if (
           this.dayNum < 1 ||
@@ -90,6 +89,7 @@
         } else {
           this.hasError = false;
           this.hasSuccess = true;
+          this.resetActivities;
 
           // Make all of our requests in a row
           for (var i = 0; i < this.dayNum; i += 1) {
