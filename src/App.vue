@@ -19,12 +19,14 @@
 
     <ol class="md-layout md-gutter activity-grid">
       <li v-for="(activity, index) in activities" class="md-layout-item md-size-15 activity-grid-item">
-        <md-card md-with-hover v-if="activity.activity">
-          <md-ripple class="activity-card">
-            <md-card-header>{{ index + 1 }}.</md-card-header>
-            <md-card-content>{{ activity.activity }}</md-card-content>
-          </md-ripple>
-        </md-card>
+        <div v-on:click="onClick(index)">
+          <md-card md-with-hover v-if="activity.activity">
+            <md-ripple class="activity-card">
+              <md-card-header>{{ index + 1 }}.</md-card-header>
+              <md-card-content>{{ activity.activity }}</md-card-content>
+            </md-ripple>
+          </md-card>
+        </div>
         <md-card class="activity-card inactive" v-if="!activity.activity">
           <md-card-header>{{ index + 1 }}.</md-card-header>
         </md-card>
@@ -98,6 +100,9 @@
             this.get(i);
           }
         }
+      },
+      onClick: function(index) {
+        this.get(index);
       },
       get: function(i) {
         let vm = this;
