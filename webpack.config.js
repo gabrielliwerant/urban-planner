@@ -9,5 +9,14 @@ module.exports = {
   },
   devServer: {
     contentBase: './dist'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+    ]
   }
 };
