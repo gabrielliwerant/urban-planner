@@ -16,9 +16,17 @@
       </md-snackbar>
     </form>
 
-    <ol>
-      <li v-for="activity in activities">
-        {{ activity.activity }}
+    <ol class="md-layout md-gutter activity-grid">
+      <li v-for="(activity, index) in activities" class="md-layout-item md-size-15 activity-grid-item">
+        <md-card md-with-hover v-if="activity.activity">
+          <md-ripple class="activity-card">
+            <md-card-header>{{ index + 1 }}.</md-card-header>
+            <md-card-content>{{ activity.activity }}</md-card-content>
+          </md-ripple>
+        </md-card>
+        <md-card class="activity-card inactive" v-if="!activity.activity">
+          <md-card-header>{{ index + 1 }}.</md-card-header>
+        </md-card>
       </li>
     </ol>
   </div>
@@ -52,9 +60,13 @@
         return `Please enter a number, 1 through ${this.maxDays}`;
       }
     },
+    created: function() {
+      for (var i = 0; i < this.maxDays; i += 1) {
+        this.activities.push({});
+      }
+    },
     methods: {
       onSubmit: function() {
-        this.activities = [];
         this.dayNum = parseInt(this.dayNum, 10);
 
         if (
@@ -72,16 +84,16 @@
 
           // Make all of our requests in a row
           for (var i = 0; i < this.dayNum; i += 1) {
-            this.get();
+            this.get(i);
           }
         }
       },
-      get: function() {
+      get: function(i) {
         let vm = this;
 
         fetch('http://www.boredapi.com/api/activity/')
           .then(res => {
-            if (res.ok) return res.json().then(body => vm.activities.push(body));
+            if (res.ok) return res.json().then(body => vm.activities.splice(i, 1, body));
 
             throw new Error('Got a not-ok response.');
           })

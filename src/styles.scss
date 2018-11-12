@@ -2,6 +2,23 @@
   text-align: center;
 }
 
+.activity-grid {
+  list-style: none;
+}
+
+.activity-grid-item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.inactive {
+  opacity: .5;
+}
+
+.activity-card {
+  min-height: 120px;
+}
+
 .md-snackbar-content {
   justify-content: center;
 }
