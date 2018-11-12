@@ -1,9 +1,7 @@
-function component() {
-  let element = document.createElement('h1');
+import Vue from 'vue';
+import App from './App.vue';
 
-  element.innerHTML = 'Hello World!';
-
-  return element;
-}
-
-document.body.appendChild(component());
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
