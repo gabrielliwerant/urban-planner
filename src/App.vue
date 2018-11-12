@@ -58,16 +58,25 @@
       },
       getFormErrorMsg: function() {
         return `Please enter a number, 1 through ${this.maxDays}`;
+      },
+      setInitialActivities: function() {
+        for (var i = 0; i < this.maxDays; i += 1) {
+          this.activities.push({});
+        }
+      },
+      resetActivities: function() {
+        for (var i = 0; i < this.maxDays; i += 1) {
+          this.activities.splice(i, 1, {});
+        }
       }
     },
     created: function() {
-      for (var i = 0; i < this.maxDays; i += 1) {
-        this.activities.push({});
-      }
+      this.setInitialActivities;
     },
     methods: {
       onSubmit: function() {
         this.dayNum = parseInt(this.dayNum, 10);
+        this.resetActivities;
 
         if (
           this.dayNum < 1 ||
@@ -94,7 +103,6 @@
         fetch('http://www.boredapi.com/api/activity/')
           .then(res => {
             if (res.ok) return res.json().then(body => vm.activities.splice(i, 1, body));
-
             throw new Error('Got a not-ok response.');
           })
           .catch(function(error) {
