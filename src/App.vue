@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <h1 class="md-display-1 title">{{ title }}</h1>
+    <h1 class="md-display-1 text-center">{{ title }}</h1>
+    <h2 class="md-subheading text-center">{{ helperText }}</h2>
 
     <form v-on:submit.prevent="onSubmit">
       <div class="md-layout md-alignment-top-center">
@@ -42,6 +43,7 @@
     data () {
       return {
         title: 'Welcome to Urban Planner!',
+        helperText: 'Create a schedule of activities below to get started. You can change individual days by clicking them, or re-submit days at any time.',
         dayNum: '',
         maxDays: 31,
         hasError: false,
