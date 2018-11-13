@@ -17,6 +17,10 @@ Allows creation of a schedule of activities for up to 31 days.
   - `npm run build` to bundle js src
   - Run `/dist/index.html` to load production app
 
+## Testing
+
+  - `npm run test`
+
 ## Roadmap
 
   - Reduce production bundle size (vue material minified css adds ~200 kb)
