@@ -17,7 +17,7 @@
       </md-snackbar>
     </form>
 
-    <ol class="md-layout md-gutter activity-grid">
+    <ol class="md-layout activity-grid">
       <li v-for="(activity, index) in activities" class="md-layout-item md-xlarge-size-15 md-large-size-15 md-small-size-45 activity-grid-item">
         <div v-on:click="onClick(index)">
           <md-card md-with-hover v-if="activity.activity">
